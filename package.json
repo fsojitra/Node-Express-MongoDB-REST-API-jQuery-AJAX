@@ -14,5 +14,22 @@
     "mongoose": "^4.12.0",
     "morgan": "^1.8.2",
     "serve-favicon": "^2.4.5"
-  }
+  },
+  "description": "Example based on Node.js, Express.js, MongoDB, Mongoose, EJS and jQuery AJAX REST API.",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FSojitra/Node-Express-MongoDB-REST-API-jQuery-AJAX.git"
+  },
+  "keywords": [
+    "ajax",
+    "rest",
+    "api"
+  ],
+  "author": "foram sojitra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FSojitra/Node-Express-MongoDB-REST-API-jQuery-AJAX/issues"
+  },
+  "homepage": "https://github.com/FSojitra/Node-Express-MongoDB-REST-API-jQuery-AJAX#readme"
 }
