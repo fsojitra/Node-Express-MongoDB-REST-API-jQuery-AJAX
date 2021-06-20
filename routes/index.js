@@ -30,26 +30,6 @@ router.post('/', (req, res, next) => {
     res.send();
   } else {
 
-    /*User.count(function(err,c){
-          //console.log('Count is ' + c);
-          let e = c+1;
-          //console.log("e"+e);
-    
-          let newPerson = new User({
-            unique_id:e,
-            username: personInfo.username,
-            fullname: personInfo.fullname,
-            age: personInfo.age
-          });
-    
-          newPerson.save(function(err, Person){
-            if(err)
-              console.log(err);
-            else
-              console.log('Success');
-          });
-    
-        });*/
     let c = 1;
     User.findOne({}, (err, data) => {
 
@@ -94,7 +74,7 @@ router.put('/user/:id', (req, res) => {
     fullname: personInfo.fullname,
     age: personInfo.age
   }, (err, rawResponse) => {
-    console.log(rawResponse);
+    // console.log(rawResponse);
   });
 
 });

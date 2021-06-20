@@ -26,7 +26,6 @@
                     data: $('#form1').serialize(),
                     dataType: "json",
                     success: function (response) {
-                        //console.log('response');
                         clearInputs();
                         Show();
                         //$( "#a" ).click();
@@ -37,7 +36,6 @@
             });
 
             $('table').on('click', '.update-button', function () {
-                //alert('asssaaa');
                 let rowEl = $(this).closest('tr');
                 let id = rowEl.find('.id').text();
                 let fullname = rowEl.find('.fullname').val();
@@ -57,7 +55,6 @@
 
             });
             $('table').on('click', '.delete-button', function () {
-                // alert("DELETE");
                 let rowEl = $(this).closest('tr');
                 let id = rowEl.find('.id').text();
 
@@ -76,14 +73,14 @@
                 Show();
             });
             function Show() {
-                // alert("Show");
                 $.ajax({
                     type: 'GET',
                     url: '/show',
                     dataType: "json",
                     success: function (response) {
                         console.log(response);
-                        let tbodyEl = $('tbody');
+                        // let tbodyEl = $('tbody');
+                        let tbodyEl = $("#myTable > tbody")
 
                         tbodyEl.html('');
 
@@ -91,12 +88,12 @@
                             tbodyEl.append('\
                         <tr>\
                         <td class="id">' + product.unique_id + '</td>\
-                        <td><input type="text" class="fullname" value="' + product.fullname + '"></td>\
-                        <td><input type="text" class="username" value="' + product.username + '"></td>\
-                        <td><input type="text" class="age" value="' + product.age + '"></td>\
+                        <td><input type="text" class="fullname form-control" value="' + product.fullname + '"></td>\
+                        <td><input type="text" class="username form-control" value="' + product.username + '"></td>\
+                        <td><input type="number" class="age form-control" value="' + product.age + '"></td>\
                         <td>\
-                        <button class="update-button">UPDATE</button>\
-                        <button class="delete-button">DELETE</button>\
+                        <button class="update-button btn btn-secondary">UPDATE</button>\
+                        <button class="delete-button btn btn-danger">DELETE</button>\
                         </td>\
                         </tr>\
                         ');
@@ -119,31 +116,42 @@
 </head>
 
 <body>
-    <button id="a">Show</button>
+    <button id="a" class="btn btn-primary">Show</button>
+    <br />
+    <br />
     <form id="form1" method="POST">
-        <label>UserName:</label><input type="text" name="username" id="username" required>
-        <br />
-        <label>Fullname:</label><input type="text" name="fullname" id="fullname" required>
-        <br />
-        <label>Age:</label><input type="Number" name="age" id="age" required>
-        <br />
-        <button type="Submit" id="add">Submit</button>
-    </form>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>FullName</th>
-                    <th>UserName</th>
-                    <th>Age</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
+        <table style="margin-left:auto; margin-right:auto;">
+            <tr>
+                <td><label>UserName</label></td>
+                <td><input class="form-control" type="text" name="username" id="username" required></td>
+            </tr>
+            <tr>
+                <td><label>Fullname</label></td>
+                <td><input class="form-control" type="text" name="fullname" id="fullname" required></td>
+            </tr>
+            <tr>
+                <td><label>Age</label></td>
+                <td><input class="form-control" type="Number" name="age" id="age" required></td>
+            </tr>
         </table>
-    </div>
+        <br />
+        <button type="Submit" id="add" class="btn btn-success">Submit</button>
+    </form>
+    <br />
+    <table id='myTable' style="margin-left:auto; margin-right:auto;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FullName</th>
+                <th>UserName</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
 </body>
 
 </html>
