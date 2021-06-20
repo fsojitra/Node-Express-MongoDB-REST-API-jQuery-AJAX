@@ -1,6 +1,6 @@
 {
-  "name": "nodetest2",
-  "version": "0.0.0",
+  "name": "Node-Express-MongoDB-REST-API-jQuery-AJAX",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
